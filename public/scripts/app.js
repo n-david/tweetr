@@ -56,11 +56,11 @@ $(document).ready(function() {
     event.preventDefault();
     const $data = $(this).serialize();
     if ($data.slice(5).length > 140) {
-      alert('Please enter 140 characters or less.');
+      alert('Please enter 140 characters or less');
       return;
     }
     if (!$data.slice(5).length) {
-      alert('Cannot submit empty post.');
+      alert('Cannot submit empty post');
       return;
     }
 
