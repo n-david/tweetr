@@ -1,3 +1,31 @@
+#nav-bar button {
+  float: right;
+  height: 60px;
+  width: 130px;
+  margin-top: 9px;
+  border-radius: 7px;
+  border: solid;
+  border-width: 0.5px;
+  background-color: #F0FFFF;
+  font-size: 20px;
+  color: #00a087;
+  border-color: black;
+}
+
+#nav-bar button img {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  right: 5px;
+  top: 3px;
+  opacity: 0.75;
+}
+
+#nav-bar button:hover {
+  filter: brightness(120%);
+  color: black;
+}
+
 #nav-bar {
   background-color: #00a087;
   color: #e8fdff;
@@ -8,15 +36,15 @@
   right: 0;
 }
 
-#nav-bar .logo {
-  float: left;
-  height: 80px;
-  width: 80px;
-}
-
 #nav-bar .header {
   float: left;
   font-size: 2em;
   line-height: 80px;
   margin-left: 10px;
+}
+
+#nav-bar .logo {
+  float: left;
+  height: 80px;
+  width: 80px;
 }

@@ -1,12 +1,20 @@
+.new-tweet .counter {
+  float: right;
+  font-size: 13px;
+  font-style: italic;;
+  padding: 6.5px;
+}
+
 .new-tweet {
   background-color: #f1f1f1;
-  border-radius: 5px;
-  margin: 0 2em 0;
   border: solid;
-  border-width: 0.2px;
   border-color: #D3D3D3;
+  border-radius: 5px;
+  border-width: 0.2px;
+  margin: 0 2em 10px;
   padding: 0 10px 0;
   padding-bottom: 0.6em;
+  display: none;
 }
 
 .new-tweet h2 {
@@ -15,13 +23,6 @@
   border-width: 1.5px;
 }
 
-textarea {
+.new-tweet .text-area {
   width: 100%;
-}
-
-.counter {
-  float: right;
-  padding: 6.5px;
-  font-size: 13px;
-  font-style: italic;;
 }
