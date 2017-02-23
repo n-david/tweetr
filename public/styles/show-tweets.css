@@ -1,3 +1,7 @@
+p {
+  word-break:break-all;
+}
+
 .show-tweets {
   border: solid;
   border-color: #D3D3D3;
@@ -16,14 +20,6 @@
   display: none;
 }
 
-.show-tweets:hover footer img {
-  display: inline;
-  float: right;
-  height: 17px;
-  margin-top: -4px;
-  padding: 3px;
-  width: 17px;
-}
 
 .show-tweets footer span {
   font-size: 10px;
@@ -36,6 +32,14 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 100%;
+}
+
+.show-tweets header img {
+  border-radius: 12px;
+  height: 60px;
+  margin-bottom: -4px;
+  padding: 7px;
+  width: 60px;
 }
 
 .show-tweets header .handle {
@@ -54,12 +58,20 @@
   position: absolute;
 }
 
-.show-tweets header img {
-  border-radius: 12px;
-  height: 60px;
-  margin-bottom: -4px;
-  padding: 7px;
-  width: 60px;
+.show-tweets section {
+  border-bottom: solid;
+  border-color: #f1f1f1;
+  border-width: 0.4px;
+  padding: 14px;
+}
+
+.show-tweets:hover footer img {
+  display: inline;
+  float: right;
+  height: 17px;
+  margin-top: -4px;
+  padding: 3px;
+  width: 17px;
 }
 
 .show-tweets:hover header {
@@ -77,11 +89,4 @@
 
 .show-tweets:hover header .name {
   color: #2F4F4F;
-}
-
-.show-tweets section {
-  border-bottom: solid;
-  border-color: #f1f1f1;
-  border-width: 0.4px;
-  padding: 14px;
 }

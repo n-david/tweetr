@@ -7,6 +7,12 @@ const simulateDelay = require("./util/simulate-delay");
 module.exports = function makeDataHelpers(db) {
   return {
 
+    // // *****************EXPERIMENTAL*****************
+    // deleteTweet: function(tweetToDelete, callback) {
+    //   db.collection("tweets").deleteOne(tweetToDelete, callback);
+    // },
+    // // *****************EXPERIMENTAL*****************
+
     // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {
       db.collection("tweets").insertOne(newTweet, callback);

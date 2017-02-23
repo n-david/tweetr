@@ -20,6 +20,13 @@ $(document).ready(function() {
     $tweet.find("header span").first().text(tweet['user']['name']).next().text(tweet['user']['handle']);
     $tweet.find("section p").text(tweet['content']['text']);
     $tweet.find("header img").attr("src", tweet['user']['avatars']['small']);
+
+    // // *****************EXPERIMENTAL*****************
+    // $tweet.find("footer").append($("<form><input>"));
+    // $tweet.find("footer form").attr("method", "POST").attr("action", "/tweets/delete").addClass("delete");
+    // $tweet.find("footer form input").attr("type", "submit").attr("value", "Delete");
+    // // *****************EXPERIMENTAL*****************
+
     const d = new Date(0);
     d.setUTCMilliseconds(tweet['created_at']);
     const oneDay = 24 * 60 * 60 * 1000;
@@ -74,6 +81,18 @@ $(document).ready(function() {
       alert(`Failed to add tweet, ${err.statusText}`);
     });
   });
+
+  // // *****************EXPERIMENTAL*****************
+  // $('.delete').on('submit', function(event) {
+  //   console.log('hi');
+  //   event.preventDefault();
+
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: '/tweets/delete',
+  //   })
+  // });
+  // // *****************EXPERIMENTAL*****************
 
   loadTweets();
 });
