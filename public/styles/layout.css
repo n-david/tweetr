@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,7 +14,6 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
   background-color: #eee;
   color: #244751;
@@ -24,15 +24,10 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
- main {
+main {
   background-color: white;
   margin: 0 auto;
   padding-bottom: 20px;
   padding-top: 140px;
   width: 450px;
- }
-
- main .articles {
-  /*margin-top: 540px;*/
- }
+}
