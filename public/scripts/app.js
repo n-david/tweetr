@@ -19,9 +19,6 @@ $(document).ready(function() {
     $tweet.find("footer img").first().attr("src", "http://www.clker.com/cliparts/H/Z/c/f/2/H/solid-dark-grey-heart-md.png").next().attr("src", "https://cdn4.iconfinder.com/data/icons/media-player-icons/80/Media_player_icons-10-512.png").next().attr("src", "https://cdn2.iconfinder.com/data/icons/flat-web/512/716975-flag-512.png")
     $tweet.find("header span").first().text(tweet['user']['name']).next().text(tweet['user']['handle']);
     $tweet.find("section p").text(tweet['content']['text']);
-
-    // $tweet.find("section p").text("<script>alert('uh oh!');</script>");
-
     $tweet.find("header img").attr("src", tweet['user']['avatars']['small']);
     const d = new Date(0);
     d.setUTCMilliseconds(tweet['created_at']);

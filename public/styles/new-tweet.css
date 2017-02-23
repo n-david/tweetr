@@ -26,3 +26,16 @@
 .new-tweet .text-area {
   width: 100%;
 }
+
+.new-tweet input {
+  border-radius: 7px;
+  border: solid;
+  border-width: 0.5px;
+  background-color: #F0FFFF;
+  border-color: black;
+  font-size: 13px;
+}
+
+.new-tweet input:hover {
+  filter: brightness(80%);
+}
