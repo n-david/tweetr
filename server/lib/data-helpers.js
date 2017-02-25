@@ -7,11 +7,13 @@ const simulateDelay = require("./util/simulate-delay");
 module.exports = function makeDataHelpers(db) {
   return {
 
-    // // *****************EXPERIMENTAL*****************
-    // deleteTweet: function(tweetToDelete, callback) {
-    //   db.collection("tweets").deleteOne(tweetToDelete, callback);
-    // },
-    // // *****************EXPERIMENTAL*****************
+    likeTweet: function(likedInfo) {
+      if (likedInfo.liked === 'true') {
+        db.collection("tweets").update( {"user.name": likedInfo.name}, {$inc: {"user.likes": 1}} );
+      } else {
+        db.collection("tweets").update( {"user.name": likedInfo.name}, {$inc: {"user.likes": -1}} );
+      }
+    },
 
     // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {

@@ -16,16 +16,19 @@ $(document).ready(function() {
     const $tweet = $("<article>").addClass("show-tweets");
     $tweet.append($("<header><img><span>").append($("<span>")), $("<section><p>"), $("<footer><span>").append("<img>").append("<img>").append("<img>"));
     $tweet.find("header span").first().addClass("name").next().addClass("handle");
-    $tweet.find("footer img").first().attr("src", "http://www.clker.com/cliparts/H/Z/c/f/2/H/solid-dark-grey-heart-md.png").next().attr("src", "https://cdn4.iconfinder.com/data/icons/media-player-icons/80/Media_player_icons-10-512.png").next().attr("src", "https://cdn2.iconfinder.com/data/icons/flat-web/512/716975-flag-512.png")
+    $tweet.find("footer img").first().addClass("heart").data('liked', false).attr("src", "../images/solid-dark-grey-heart-md.png").next().attr("src", "../images/Media_player_icons-10-512.png").next().attr("src", "../images/716975-flag-512.png")
     $tweet.find("header span").first().text(tweet['user']['name']).next().text(tweet['user']['handle']);
     $tweet.find("section p").text(tweet['content']['text']);
     $tweet.find("header img").attr("src", tweet['user']['avatars']['small']);
 
-    // // *****************EXPERIMENTAL*****************
-    // $tweet.find("footer").append($("<form><input>"));
-    // $tweet.find("footer form").attr("method", "POST").attr("action", "/tweets/delete").addClass("delete");
-    // $tweet.find("footer form input").attr("type", "submit").attr("value", "Delete");
-    // // *****************EXPERIMENTAL*****************
+    const $likesCounter = tweet['user']['likes'];
+    if (tweet['user']['likes'] > 1) {
+      $tweet.find("section").append($("<span>").addClass('likes-counter').attr("value", $likesCounter).text($likesCounter + ' likes'));
+    } else if (tweet['user']['likes'] === 1) {
+      $tweet.find("section").append($("<span>").addClass('likes-counter').attr("value", $likesCounter).text($likesCounter + ' like'));
+    } else {
+      $tweet.find("section").append($("<span>").addClass('likes-counter').attr("value", $likesCounter));
+    }
 
     const d = new Date(0);
     d.setUTCMilliseconds(tweet['created_at']);
@@ -59,7 +62,7 @@ $(document).ready(function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
     const $data = $(this).serialize();
-    if ($data.slice(5).length > 140) {
+    if ($(this).find('.text-area').val().length > 140) {
       alert('Please enter 140 characters or less');
       return;
     }
@@ -72,7 +75,7 @@ $(document).ready(function() {
       method: 'POST',
       url: '/tweets',
       data: $data
-    }).then(function(data) {
+    }).then(function() {
       $('.text-area').val('');
       $('.counter').text('140');
       $('.new-tweet').slideUp();
@@ -81,18 +84,6 @@ $(document).ready(function() {
       alert(`Failed to add tweet, ${err.statusText}`);
     });
   });
-
-  // // *****************EXPERIMENTAL*****************
-  // $('.delete').on('submit', function(event) {
-  //   console.log('hi');
-  //   event.preventDefault();
-
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/tweets/delete',
-  //   })
-  // });
-  // // *****************EXPERIMENTAL*****************
 
   loadTweets();
 });

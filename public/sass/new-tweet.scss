@@ -7,12 +7,13 @@
   display: none;
   margin: 0 2em 10px;
   padding: 0 10px 0;
-  padding-bottom: 0.6em; }
-  .new-tweet h2 {
+  padding-bottom: 0.6em;
+  h2 {
     border-bottom: solid;
     border-width: 1.5px;
-    margin-top: 8px; }
-  .new-tweet input {
+    margin-top: 8px;
+  }
+  input {
     background-color: #F0FFFF;
     border: solid;
     border-color: black;
@@ -20,13 +21,18 @@
     border-width: 0.5px;
     font-size: 13px;
     position: relative;
-    top: 3.5px; }
-    .new-tweet input:hover {
-      filter: brightness(80%); }
-  .new-tweet .counter {
+    top: 3.5px;
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+  .counter {
     float: right;
     font-size: 13px;
     font-style: italic;
-    padding: 6.5px; }
-  .new-tweet .text-area {
-    width: 100%; }
+    padding: 6.5px;
+  }
+  .text-area {
+    width: 100%;
+  }
+}

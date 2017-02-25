@@ -39,20 +39,15 @@ module.exports = function(DataHelpers) {
         res.status(201).send();
       }
     });
+  });
 
-    // // *****************EXPERIMENTAL*****************
-    // tweetsRoutes.post("/delete", function(req, res) {
-    //   const tweet = {content: {'text': req.body.text}};
-    //   DataHelpers.deleteTweet(tweet, (err) => {
-    //     if (err) {
-    //       res.status(500).json({error: err.message });
-    //     } else {
-    //       res.status(201).send();
-    //     }
-    //   });
-    // });
-    // // *****************EXPERIMENTAL*****************
-
+  tweetsRoutes.put("/", function(req, res) {
+    const likedInfo = {
+      name: req.body.name,
+      liked: req.body.liked
+    };
+    DataHelpers.likeTweet(likedInfo);
+    res.status(201).send();
   });
 
   return tweetsRoutes;
