@@ -4,7 +4,6 @@ $(document).ready(function() {
 
     let $tempCounter = $currentCounter.attr('value');
     let like = ' like'
-    $tempCounter < 2 ? like : like = ' likes';
     if ($(this).data('liked') === false) {
       $tempCounter++;
       $(this).data('liked', true);
@@ -14,6 +13,7 @@ $(document).ready(function() {
       $(this).attr('src', '../images/solid-dark-grey-heart-md.png')
     }
     $currentCounter.val($tempCounter);
+    $tempCounter < 2 ? like : like = ' likes';
     $tempCounter > 0 ? $currentCounter.text($tempCounter + like) : $currentCounter.text('');
 
     $.ajax({
