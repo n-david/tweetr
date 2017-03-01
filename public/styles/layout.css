@@ -31,3 +31,15 @@ main {
   padding-top: 140px;
   width: 450px;
 }
+
+@media (max-width: 500px) {
+  main {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    width: 650px;
+  }
+}
