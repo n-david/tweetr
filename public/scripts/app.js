@@ -6,17 +6,11 @@
 
 $(document).ready(function() {
 
-  function renderTweets(tweets) {
-    for (let i = 0; i < tweets.length; i++) {
-      $('.container .new-tweet').after(createTweetElement(tweets[i]));
-    }
-  }
-
   function createTweetElement(tweet) {
     const $tweet = $("<article>").addClass("show-tweets");
     $tweet.append($("<header><img><span>").append($("<span>")), $("<section><p>"), $("<footer><span>").append("<img>").append("<img>").append("<img>"));
     $tweet.find("header span").first().addClass("name").next().addClass("handle");
-    $tweet.find("footer img").first().addClass("heart").data('liked', false).attr("src", "../images/solid-dark-grey-heart-md.png").next().attr("src", "../images/Media_player_icons-10-512.png").next().attr("src", "../images/716975-flag-512.png")
+    $tweet.find("footer img").first().addClass("heart").data('liked', false).attr("src", "../images/solid-dark-grey-heart-md.png").next().attr("src", "../images/Media_player_icons-10-512.png").next().attr("src", "../images/716975-flag-512.png");
     $tweet.find("header span").first().text(tweet['user']['name']).next().text(tweet['user']['handle']);
     $tweet.find("section p").text(tweet['content']['text']);
     $tweet.find("header img").attr("src", tweet['user']['avatars']['small']);
@@ -39,10 +33,16 @@ $(document).ready(function() {
     return $tweet;
   }
 
+  function renderTweets(tweets) {
+    for (let i = 0; i < tweets.length; i++) {
+      $('.container .new-tweet').after(createTweetElement(tweets[i]));
+    }
+  }
+
   function loadTweets() {
     $.ajax({
       method: 'GET',
-      url: '/tweets',
+      url: '/tweets'
     }).then(function(tweetsJSON) {
       renderTweets(tweetsJSON);
     }).catch(function(err) {
@@ -53,7 +53,7 @@ $(document).ready(function() {
   function loadLatestTweet() {
     $.ajax({
       method: 'GET',
-      url: '/tweets',
+      url: '/tweets'
     }).then(function(tweetsJSON) {
       renderTweets([tweetsJSON[tweetsJSON.length - 1]]);
     });
